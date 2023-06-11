@@ -17,7 +17,10 @@ def getPrediction(filename):
     
     
     #Load model
-    my_model=load_model("model/best_model_vgg.h5")
+    import os
+model_path = os.path.join(os.path.dirname(__file__), 'model/best_model_vgg.h5')
+ my_model = joblib.load(model_path)
+
     
     SIZE = 32#Resize to same size as training images
     img_path = 'static/images/'+filename
